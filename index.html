@@ -689,84 +689,129 @@
 
     .branch-contact a:hover { text-decoration: underline; }
 
-    /* ── GALLERY ── */
+    /* ── GALLERY CAROUSEL ── */
     .gallery-wrap {
       margin-top: 3rem;
       text-align: center;
     }
 
-    .gallery-group {
-      margin-bottom: 2.5rem;
+    .carousel-container {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
-    .gallery-group-title {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin: 0 0 1rem;
-      display: flex;
+    .carousel-slide {
+      display: none;
+      flex-direction: column;
       align-items: center;
-      gap: 0.75rem;
-      justify-content: center;
+      animation: fadeSlide 0.5s ease;
     }
 
-    .gallery-group-title::after {
-      content: '';
-      height: 1px;
-      width: 40px;
-      background: var(--border);
-    }
-
-    .gallery-group-title::before {
-      content: '';
-      height: 1px;
-      width: 40px;
-      background: var(--border);
-    }
-
-    .gallery-grid {
+    .carousel-slide.active {
       display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-      justify-content: center;
     }
 
-    .gallery-cell {
-      aspect-ratio: 1;
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .carousel-img-wrap {
+      width: 100%;
+      aspect-ratio: 4/3;
       background: var(--card);
       border: 1px solid var(--border);
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+    }
+
+    .carousel-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-placeholder {
+      font-family: 'Space Mono', monospace;
       font-size: 0.75rem;
       color: var(--muted);
-      font-family: 'Space Mono', monospace;
-      overflow: hidden;
-      position: relative;
-      transition: border-color 0.2s;
       text-align: center;
       padding: 1rem;
     }
 
-    .gallery-cell:hover { border-color: var(--orange); }
-
-    .gallery-cell img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      position: absolute; inset: 0;
+    .carousel-info {
+      margin-top: 1rem;
+      text-align: center;
     }
 
-    .gallery-caption {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.8));
-      padding: 0.75rem 0.5rem 0.4rem;
+    .carousel-category {
       font-family: 'Space Mono', monospace;
       font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.35rem;
+    }
+
+    .carousel-desc {
+      font-size: 0.85rem;
+      color: var(--muted2);
+    }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.75rem;
+    }
+
+    .carousel-btn {
+      background: var(--card);
+      border: 1px solid var(--border);
       color: var(--text);
-      letter-spacing: 0.05em;
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.2s;
+      font-family: 'Anton', sans-serif;
+    }
+
+    .carousel-btn:hover {
+      background: var(--orange);
+      color: var(--black);
+      border-color: var(--orange);
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .carousel-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .carousel-dot.active {
+      background: var(--orange);
+      width: 20px;
+      border-radius: 3px;
+    }
+
+    .carousel-counter {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 0.75rem;
     }
 
     /* ── CTA ── */
@@ -1191,22 +1236,15 @@
       <div class="section-tag" style="justify-content:center;">Momen</div>
       <h2>Galeri</h2>
     </div>
-    <div class="gallery-wrap">
-      <div class="gallery-group fade-up">
-        <div class="gallery-group-title">Latihan Tim</div>
-        <div class="gallery-grid" id="galleryLatihan"></div>
-      </div>
-      <div class="gallery-group fade-up delay-1">
-        <div class="gallery-group-title">Turnamen</div>
-        <div class="gallery-grid" id="galleryTurnamen"></div>
-      </div>
-      <div class="gallery-group fade-up delay-2">
-        <div class="gallery-group-title">After Game</div>
-        <div class="gallery-grid" id="galleryAfter"></div>
-      </div>
-      <div class="gallery-group fade-up delay-3">
-        <div class="gallery-group-title">Community</div>
-        <div class="gallery-grid" id="galleryCommunity"></div>
+    <div class="gallery-wrap fade-up">
+      <div class="carousel-container">
+        <div id="carouselSlides"></div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="prevBtn">&#8592;</button>
+          <div class="carousel-dots" id="carouselDots"></div>
+          <button class="carousel-btn" id="nextBtn">&#8594;</button>
+        </div>
+        <div class="carousel-counter" id="carouselCounter"></div>
       </div>
     </div>
   </section>
@@ -1262,48 +1300,73 @@
   }, { threshold: 0.1 });
   faders.forEach(function(el) { observer.observe(el); });
 
-  // Gallery from localStorage
-  var STORAGE_KEY = 'kairosDashboardData';
-  var defaults = {
-    gallery: [
-      { name: 'Latihan tim', images: [] },
-      { name: 'Turnamen', images: [] },
-      { name: 'After game', images: [] },
-      { name: 'Community', images: [] }
-    ]
-  };
+  // Gallery Carousel
+  var slides = [
+    { category: 'Latihan Tim', img: '', desc: 'Sesi latihan rutin bersama tim' },
+    { category: 'Turnamen', img: '', desc: 'Bertanding di kompetisi antar club' },
+    { category: 'After Game', img: '', desc: 'Momen kebersamaan setelah pertandingan' },
+    { category: 'Community', img: '', desc: 'Komunitas Kairos Knight yang solid' }
+  ];
+  // To add real photos, change img: '' to img: 'namafile.jpg'
+  // Example: { category: 'Latihan Tim', img: 'latihan1.jpg', desc: 'Deskripsi foto' }
 
-  function loadGallery() {
-    try {
-      var raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return defaults.gallery;
-      var parsed = JSON.parse(raw);
-      return Array.isArray(parsed.gallery) ? parsed.gallery : defaults.gallery;
-    } catch(e) { return defaults.gallery; }
+  var current = 0;
+  var autoTimer;
+
+  var slidesEl = document.getElementById('carouselSlides');
+  var dotsEl = document.getElementById('carouselDots');
+  var counterEl = document.getElementById('carouselCounter');
+
+  function renderSlides() {
+    slidesEl.innerHTML = slides.map(function(s, i) {
+      return '<div class="carousel-slide' + (i === 0 ? ' active' : '') + '">' +
+        '<div class="carousel-img-wrap">' +
+          (s.img ? '<img src="' + s.img + '" alt="' + s.category + '">' : '<div class="carousel-placeholder">📸<br>Belum ada foto<br>' + s.category + '</div>') +
+        '</div>' +
+        '<div class="carousel-info">' +
+          '<div class="carousel-category">' + s.category + '</div>' +
+          '<div class="carousel-desc">' + s.desc + '</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+
+    dotsEl.innerHTML = slides.map(function(_, i) {
+      return '<div class="carousel-dot' + (i === 0 ? ' active' : '') + '" data-i="' + i + '"></div>';
+    }).join('');
+
+    dotsEl.querySelectorAll('.carousel-dot').forEach(function(dot) {
+      dot.addEventListener('click', function() { goTo(parseInt(this.getAttribute('data-i'))); });
+    });
+
+    updateCounter();
   }
 
-  var galleryMap = {
-    'Latihan tim': 'galleryLatihan',
-    'Turnamen': 'galleryTurnamen',
-    'After game': 'galleryAfter',
-    'Community': 'galleryCommunity'
-  };
+  function goTo(n) {
+    var allSlides = slidesEl.querySelectorAll('.carousel-slide');
+    var allDots = dotsEl.querySelectorAll('.carousel-dot');
+    allSlides[current].classList.remove('active');
+    allDots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    allSlides[current].classList.add('active');
+    allDots[current].classList.add('active');
+    updateCounter();
+    resetTimer();
+  }
 
-  var galleryData = loadGallery();
-  galleryData.forEach(function(group) {
-    var name = String(group.name || '').trim();
-    var containerId = galleryMap[name];
-    var container = containerId ? document.getElementById(containerId) : null;
-    if (!container) return;
-    var images = Array.isArray(group.images) ? group.images.filter(Boolean) : [];
-    if (images.length > 0) {
-      container.innerHTML = images.map(function(src, i) {
-        return '<div class="gallery-cell"><img src="' + src + '" alt="' + name + ' ' + (i+1) + '"><span class="gallery-caption">' + name + '</span></div>';
-      }).join('');
-    } else {
-      container.innerHTML = '<div class="gallery-cell">Belum ada foto untuk ' + name + '</div>';
-    }
-  });
+  function updateCounter() {
+    counterEl.textContent = (current + 1) + ' / ' + slides.length;
+  }
+
+  function resetTimer() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(function() { goTo(current + 1); }, 3500);
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', function() { goTo(current - 1); });
+  document.getElementById('nextBtn').addEventListener('click', function() { goTo(current + 1); });
+
+  renderSlides();
+  resetTimer();
 })();
 </script>
 </body>
