@@ -479,6 +479,7 @@
       transition: background 0.3s;
       position: relative;
       overflow: hidden;
+      text-align: center;
     }
 
     .value-item::after {
@@ -572,11 +573,15 @@
     /* ── TEAM ── */
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
       margin-top: 3rem;
+    }
+
+    @media (max-width: 640px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     .team-card {
@@ -687,6 +692,7 @@
     /* ── GALLERY ── */
     .gallery-wrap {
       margin-top: 3rem;
+      text-align: center;
     }
 
     .gallery-group {
@@ -703,19 +709,28 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      justify-content: center;
     }
 
     .gallery-group-title::after {
       content: '';
-      flex: 1;
       height: 1px;
+      width: 40px;
+      background: var(--border);
+    }
+
+    .gallery-group-title::before {
+      content: '';
+      height: 1px;
+      width: 40px;
       background: var(--border);
     }
 
     .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
       gap: 4px;
+      justify-content: center;
     }
 
     .gallery-cell {
@@ -731,6 +746,8 @@
       overflow: hidden;
       position: relative;
       transition: border-color 0.2s;
+      text-align: center;
+      padding: 1rem;
     }
 
     .gallery-cell:hover { border-color: var(--orange); }
@@ -1012,8 +1029,8 @@
 
   <!-- VALUES -->
   <section id="nilai">
-    <div class="section-header fade-up">
-      <div class="section-tag">Yang Kami Junjung</div>
+    <div class="section-header fade-up" style="text-align:center;">
+      <div class="section-tag" style="justify-content:center;">Yang Kami Junjung</div>
       <h2>Nilai Club</h2>
     </div>
     <div class="values-grid">
@@ -1040,8 +1057,8 @@
 
   <!-- SCHEDULE -->
   <section id="jadwal">
-    <div class="section-header fade-up">
-      <div class="section-tag">Rutinitas</div>
+    <div class="section-header fade-up" style="text-align:center;">
+      <div class="section-tag" style="justify-content:center;">Rutinitas</div>
       <h2>Jadwal Latihan</h2>
     </div>
     <div class="schedule-grid fade-up">
@@ -1110,8 +1127,8 @@
 
   <!-- TEAM -->
   <section id="tim">
-    <div class="section-header fade-up">
-      <div class="section-tag">Struktur</div>
+    <div class="section-header fade-up" style="text-align:center;">
+      <div class="section-tag" style="justify-content:center;">Struktur</div>
       <h2>Tim Coach</h2>
     </div>
     <div class="team-grid">
@@ -1140,8 +1157,8 @@
 
   <!-- BRANCHES -->
   <section id="cabang">
-    <div class="section-header fade-up">
-      <div class="section-tag">Cabang</div>
+    <div class="section-header fade-up" style="text-align:center;">
+      <div class="section-tag" style="justify-content:center;">Cabang</div>
       <h2>Lokasi / Cabang<br/>Kairos Knight</h2>
     </div>
     <div class="branch-grid">
@@ -1170,8 +1187,8 @@
 
   <!-- GALLERY -->
   <section id="galeri">
-    <div class="section-header fade-up">
-      <div class="section-tag">Momen</div>
+    <div class="section-header fade-up" style="text-align:center;">
+      <div class="section-tag" style="justify-content:center;">Momen</div>
       <h2>Galeri</h2>
     </div>
     <div class="gallery-wrap">
@@ -1284,7 +1301,7 @@
         return '<div class="gallery-cell"><img src="' + src + '" alt="' + name + ' ' + (i+1) + '"><span class="gallery-caption">' + name + '</span></div>';
       }).join('');
     } else {
-      container.innerHTML = '<div class="gallery-cell" style="grid-column:span 2">Belum ada foto untuk ' + name + '</div>';
+      container.innerHTML = '<div class="gallery-cell">Belum ada foto untuk ' + name + '</div>';
     }
   });
 })();
