@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kairos Knight — Club Basket</title>
+  <title>Kairos Knights — Klub Basket</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" type="image/jpeg" href="https://aetherhln.github.io/Kairos-Knight/logo.jpg" />
@@ -531,6 +531,10 @@
       .values-grid { grid-template-columns: 1fr; }
     }
 
+    @media (max-width: 640px) {
+      .visi-misi-grid { grid-template-columns: 1fr !important; }
+    }
+
     .value-item {
       background: var(--black);
       padding: 2.5rem 2rem;
@@ -1028,7 +1032,7 @@
 <header>
   <a href="#" class="logo-wrap">
     <img src="https://aetherhln.github.io/Kairos-Knight/logo.jpg" alt="KK" class="logo-img" />
-    <span class="logo-text">Kairos <span>Knight</span></span>
+    <span class="logo-text">Kairos <span>Knights</span></span>
   </a>
   <button type="button" class="menu-toggle" id="menuToggle">☰</button>
   <nav id="mainNav">
@@ -1047,10 +1051,10 @@
 <!-- HERO -->
 <div class="hero">
   <div class="hero-left fade-up visible">
-    <div class="hero-eyebrow">Club Basket &nbsp;·&nbsp; Komunitas & Kompetisi</div>
+    <div class="hero-eyebrow">Klub Basket Terdaftar di Perbasi Jakarta Barat</div>
     <h1 class="hero-h1">
       <span class="line1">Kairos</span>
-      <span class="line2">Knight</span>
+      <span class="line2">Knights</span>
     </h1>
     <p class="hero-tagline">
       Waktu yang tepat untuk berlatih, bertanding, dan bertumbuh bersama. Kami membuka pintu untuk pemain baru yang ingin serius di lapangan maupun sekadar menikmati permainan.
@@ -1091,23 +1095,22 @@
         <line x1="200" y1="185" x2="200" y2="205"/>
       </svg>
     </div>
-    <div class="hero-number">23</div>
   </div>
 </div>
 
 <!-- TICKER -->
 <div class="ticker-wrap">
   <div class="ticker-inner">
-    <span class="ticker-item"><span class="dot">●</span>Kairos Knight</span>
-    <span class="ticker-item"><span class="dot">●</span>Club Basket Jakarta</span>
+    <span class="ticker-item"><span class="dot">●</span>Kairos Knights</span>
+    <span class="ticker-item"><span class="dot">●</span>Klub Basket Jakarta</span>
     <span class="ticker-item"><span class="dot">●</span>Latihan Reguler</span>
-    <span class="ticker-item"><span class="dot">●</span>Turnamen Antar Club</span>
+    <span class="ticker-item"><span class="dot">●</span>Turnamen Antar Klub</span>
     <span class="ticker-item"><span class="dot">●</span>Umur 6–18 Tahun</span>
     <span class="ticker-item"><span class="dot">●</span>Jakarta</span>
-    <span class="ticker-item"><span class="dot">●</span>Kairos Knight</span>
-    <span class="ticker-item"><span class="dot">●</span>Club Basket Jakarta</span>
+    <span class="ticker-item"><span class="dot">●</span>Kairos Knights</span>
+    <span class="ticker-item"><span class="dot">●</span>Klub Basket Jakarta</span>
     <span class="ticker-item"><span class="dot">●</span>Latihan Reguler</span>
-    <span class="ticker-item"><span class="dot">●</span>Turnamen Antar Club</span>
+    <span class="ticker-item"><span class="dot">●</span>Turnamen Antar Klub</span>
     <span class="ticker-item"><span class="dot">●</span>Umur 6–18 Tahun</span>
     <span class="ticker-item"><span class="dot">●</span>Jakarta</span>
   </div>
@@ -1117,18 +1120,27 @@
   <!-- ABOUT -->
   <section id="tentang" style="padding-top:6rem;">
     <div class="about-visual fade-up">
-      <div class="about-court-box">
-        <svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="rgba(180,100,255,0.9)" stroke-width="1.5">
-          <rect x="15" y="15" width="270" height="190" rx="3"/>
-          <line x1="150" y1="15" x2="150" y2="205"/>
-          <circle cx="150" cy="110" r="35"/>
-          <path d="M 15 70 Q 80 110 15 150"/>
-          <path d="M 285 70 Q 220 110 285 150"/>
-          <rect x="15" y="85" width="60" height="50"/>
-          <rect x="225" y="85" width="60" height="50"/>
-          <circle cx="150" cy="110" r="4" fill="rgba(200,130,255,1)"/>
-        </svg>
-
+      <div class="about-court-box" style="background:#fff; padding:0; overflow:hidden;">
+        <div style="position:relative; width:100%; height:100%;">
+          <img src="https://aetherhln.github.io/Kairos-Knight/court.jpg" alt="Lapangan Kairos Knights" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <!-- Fallback: purple basketball court SVG with logo in center -->
+          <div style="display:none;position:absolute;inset:0;background:#5b21b6;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+              <rect width="400" height="280" fill="#5b21b6"/>
+              <rect x="20" y="20" width="360" height="240" fill="none" stroke="white" stroke-width="2"/>
+              <line x1="200" y1="20" x2="200" y2="260" stroke="white" stroke-width="2"/>
+              <circle cx="200" cy="140" r="50" fill="none" stroke="white" stroke-width="2"/>
+              <rect x="20" y="110" width="80" height="60" fill="#f0a800"/>
+              <rect x="300" y="110" width="80" height="60" fill="#f0a800"/>
+              <circle cx="200" cy="140" r="6" fill="white"/>
+              <image href="https://aetherhln.github.io/Kairos-Knight/logo.jpg" x="175" y="115" width="50" height="50" style="border-radius:50%;"/>
+            </svg>
+          </div>
+          <!-- Kairos Knights logo overlay at center of court -->
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;border-radius:50%;overflow:hidden;border:3px solid white;background:white;">
+            <img src="https://aetherhln.github.io/Kairos-Knight/logo.jpg" alt="Kairos Knights Logo" style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+        </div>
       </div>
     </div>
     <div class="about-text fade-up delay-1" style="padding-top:6rem;">
@@ -1137,10 +1149,10 @@
         <h2>Lebih dari<br/>Sekadar Main Bola</h2>
       </div>
       <p>
-        <strong>Kairos Knight</strong> adalah club basket yang fokus pada pengembangan skill, teamwork, dan sportivitas. Dari latihan fundamental hingga scrimmage, setiap anggota didorong untuk memberikan yang terbaik—di dalam dan di luar lapangan.
+        <strong>Kairos Knights</strong> adalah klub basket terdaftar di Perbasi Jakarta Barat yang fokus pada pengembangan skill, teamwork, dan sportivitas. Dari latihan fundamental hingga scrimmage, setiap anggota didorong untuk memberikan yang terbaik—di dalam dan di luar lapangan.
       </p>
       <p>
-        Cocok untuk pelajar umur <strong>6–18 tahun</strong> yang ingin rutin bergerak, bertemu teman baru, dan ikut event antar club atau turnamen lokal.
+        Cocok untuk pelajar umur <strong>6–18 tahun</strong> yang ingin rutin bergerak, bertemu teman baru, dan ikut event antar klub atau turnamen lokal.
       </p>
       <a href="https://www.instagram.com/kairosknights?igsh=MXdldmpjNnA3em96bQ==" class="ig-link" target="_blank" rel="noopener">@kairosknights</a>
     </div>
@@ -1150,26 +1162,73 @@
   <section id="nilai">
     <div class="section-header fade-up" style="text-align:center;">
       <div class="section-tag" style="justify-content:center;">Yang Kami Junjung</div>
-      <h2>Nilai Club</h2>
+      <h2>Nilai Klub</h2>
     </div>
+
+    <!-- VISI & MISI -->
+    <div class="visi-misi-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:3rem;" class="fade-up">
+      <div style="background:var(--card);border:1px solid var(--border);padding:2rem;">
+        <div style="font-family:'Space Mono',monospace;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:0.75rem;">Visi</div>
+        <p style="color:var(--muted2);line-height:1.8;margin:0;font-size:0.95rem;">Menjadi klub basket yang membentuk pemain muda berkarakter positif, berprestasi, dan menjunjung sportivitas.</p>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);padding:2rem;">
+        <div style="font-family:'Space Mono',monospace;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:0.75rem;">Misi</div>
+        <ul style="color:var(--muted2);line-height:2;margin:0;padding-left:1.25rem;font-size:0.9rem;">
+          <li>Membangun Budaya dan Karakter Positif</li>
+          <li>Mengembangkan Potensi Pemain Muda</li>
+          <li>Mendorong Partisipasi dalam Kompetisi</li>
+          <li>Menanamkan Gaya Hidup Sehat</li>
+          <li>Menyiapkan Pemain ke Jalur Pro</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- KNIGHTS Acrostic -->
     <div class="values-grid">
       <div class="value-item fade-up">
-        <div class="value-num">01</div>
-        <span class="value-icon">🏀</span>
-        <h3>Disiplin & Konsistensi</h3>
-        <p>Latihan terjadwal dan komitmen pribadi membentuk pemain yang andal saat tekanan tinggi.</p>
+        <div class="value-num" style="color:var(--gold);opacity:0.3;font-size:3rem;">K</div>
+        <span class="value-icon">❤️</span>
+        <h3>Kasih</h3>
+        <p>Membangun hubungan yang saling menghargai dan mendukung di dalam tim.</p>
       </div>
       <div class="value-item fade-up delay-1">
-        <div class="value-num">02</div>
-        <span class="value-icon">🤝</span>
-        <h3>Tim di Atas Ego</h3>
-        <p>Pass yang tepat dan komunikasi di pertahanan sama pentingnya dengan poin individu.</p>
+        <div class="value-num" style="color:var(--gold);opacity:0.3;font-size:3rem;">N</div>
+        <span class="value-icon">✨</span>
+        <h3>Niat Positif</h3>
+        <p>Setiap langkah di lapangan dilandasi niat yang baik dan tulus.</p>
       </div>
       <div class="value-item fade-up delay-2">
-        <div class="value-num">03</div>
+        <div class="value-num" style="color:var(--gold);opacity:0.3;font-size:3rem;">I</div>
+        <span class="value-icon">🏆</span>
+        <h3>Integritas</h3>
+        <p>Bermain jujur dan menjaga komitmen baik saat menang maupun kalah.</p>
+      </div>
+      <div class="value-item fade-up">
+        <div class="value-num" style="color:var(--gold);opacity:0.3;font-size:3rem;">G</div>
+        <span class="value-icon">💪</span>
+        <h3>Gigih</h3>
+        <p>Pantang menyerah dalam latihan dan terus berkembang setiap hari.</p>
+      </div>
+      <div class="value-item fade-up delay-1">
+        <div class="value-num" style="color:var(--gold);opacity:0.3;font-size:3rem;">H</div>
+        <span class="value-icon">🙏</span>
+        <h3>Hormat</h3>
+        <p>Menghormati pelatih, rekan tim, lawan, dan seluruh komunitas basket.</p>
+      </div>
+      <div class="value-item fade-up delay-2">
+        <div class="value-num" style="color:var(--gold);opacity:0.3;font-size:3rem;">T</div>
         <span class="value-icon">⚡</span>
-        <h3>Semangat Belajar</h3>
-        <p>Setiap level dipersilakan—asalkan mau latihan dan mendengar feedback dari pelatih dan senior.</p>
+        <h3>Tanggung Jawab</h3>
+        <p>Bertanggung jawab atas peran masing-masing demi kemajuan bersama.</p>
+      </div>
+    </div>
+    <!-- S row centered -->
+    <div style="display:grid;grid-template-columns:1fr;background:var(--border);border:1px solid var(--border);border-top:none;">
+      <div class="value-item fade-up" style="max-width:400px;margin:0 auto;width:100%;">
+        <div class="value-num" style="color:var(--gold);opacity:0.3;font-size:3rem;">S</div>
+        <span class="value-icon">🤝</span>
+        <h3>Sportif</h3>
+        <p>Menjunjung tinggi fair play dan menghargai setiap hasil pertandingan dengan lapang dada.</p>
       </div>
     </div>
   </section>
@@ -1278,21 +1337,21 @@
   <section id="cabang">
     <div class="section-header fade-up" style="text-align:center;">
       <div class="section-tag" style="justify-content:center;">Cabang</div>
-      <h2>Lokasi / Cabang<br/>Kairos Knight</h2>
+      <h2>Lokasi / Cabang<br/>Kairos Knights</h2>
     </div>
     <div class="branch-grid">
       <div class="branch-card fade-up">
-        <div class="branch-name">Kairos Knight Jakarta</div>
+        <div class="branch-name">Kairos Knights Jakarta</div>
         <div class="branch-location">Jakarta Selatan, GOR Bulungan</div>
         <div class="branch-contact"><a href="https://wa.me/6282200000011" target="_blank">WA: 0822-0000-011</a></div>
       </div>
       <div class="branch-card fade-up delay-1">
-        <div class="branch-name">Kairos Knight Depok</div>
+        <div class="branch-name">Kairos Knights Depok</div>
         <div class="branch-location">Depok, GOR Cipayung</div>
         <div class="branch-contact"><a href="https://wa.me/6282212341234" target="_blank">WA: 0822-1234-1234</a></div>
       </div>
       <div class="branch-card fade-up delay-2">
-        <div class="branch-name">Kairos Knight Bandung</div>
+        <div class="branch-name">Kairos Knights Bandung</div>
         <div class="branch-location">Bandung, Cihampelas</div>
         <div class="branch-contact"><a href="https://wa.me/6282234567890" target="_blank">WA: 0822-3456-7890</a></div>
       </div>
@@ -1342,7 +1401,7 @@
 
 <footer>
   <div class="footer-left">
-    <strong>Kairos Knight</strong> · Club Basket · <span id="year"></span>
+    <strong>Kairos Knights</strong> · Klub Basket · <span id="year"></span>
   </div>
   <div class="footer-socials">
     <a href="https://wa.me/6285717596986" target="_blank">WhatsApp</a>
@@ -1379,7 +1438,7 @@
     { category: 'Latihan Tim', img: '', desc: 'Sesi latihan rutin bersama tim' },
     { category: 'Turnamen', img: '', desc: 'Bertanding di kompetisi antar club' },
     { category: 'After Game', img: '', desc: 'Momen kebersamaan setelah pertandingan' },
-    { category: 'Community', img: '', desc: 'Komunitas Kairos Knight yang solid' }
+    { category: 'Community', img: '', desc: 'Komunitas Kairos Knights yang solid' }
   ];
   // To add real photos, change img: '' to img: 'namafile.jpg'
   // Example: { category: 'Latihan Tim', img: 'latihan1.jpg', desc: 'Deskripsi foto' }
